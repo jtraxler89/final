@@ -1,0 +1,48 @@
+<div>
+  <h1>The Happiest Hour</h1>
+  <h2>Our Bars</h2>
+  <p></p>
+  <a href"/bars/new"><button type="button" class="btn btn-outline-primary btn-lg">+ Add Bar</button></a>
+  <p></p>
+
+  <% for bar in @bars %>  
+    <div class="row">
+      <div class="col-sm-5">
+        <h3><a href="/bars/<%= bar[:id] %>"><%= bar[:name] %></a></h3>
+        <h5><%= bar[:neighborhood] %></h5>
+        <h6><%= bar[:address] %></h3>
+        <h6><%= bar[:telephone] %></h3>
+        <h6><a href="<%= bar[:website] %>"><%= bar[:website] %></a></h3>
+      </div>
+      <div class="col-sm-5">
+        <table class="table table-sm table-borderless">
+          <tbody>
+            <tr>
+              <td>Drink Specials</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>Food Specials</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>Ambiance</td>
+              <td>@fat</td>
+            </tr>
+            <tr>  
+              <td>Overall</td>
+              <td>@fat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-2">
+        <a href="/bars/<%= bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
+      </div>
+    </div>
+  <% end %>
+  <p></p>
+  <a href="/bars/new"><button type="button" class="btn btn-outline-primary btn-lg">+ Add Bar</button></a>
+  <p></p>
+</div>
+

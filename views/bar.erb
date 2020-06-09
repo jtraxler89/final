@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-sm-5">
+    <h1><%= @bar[:name] %></h1>
+    <h3><%= @bar[:neighborhood] %></h3>
+    <h6><%= @bar[:address] %></h3>
+    <h6><%= @bar[:telephone] %></h3>
+    <h6><a href="<%= @bar[:website] %>"><%= @bar[:website] %></a></h3>
+  </div>
+  <div class="col-sm-5">
+    <table class="table table-sm table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">Review</th>
+          <th scope="col">Out of 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Drink Specials</td>
+          <td><%= @reviewsAVGdrinkspecials %></td>
+        </tr>
+        <tr>
+          <td>Food Specials</td>
+          <td><%= @reviewsAVGfoodspecials %></td>
+        </tr>
+        <tr>
+          <td>Ambiance</td>
+          <td><%= @reviewsAVGambiance %></td>
+        </tr>
+        <tr>  
+          <td>Overall</td>
+          <td><%= @reviewsAVGoverall %></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    <div class="col-sm-2">
+      <a href="/bars/<%= @bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
+    </div>
+  </div>
+
+  <div>
+    <hr class="my-4">
+  </div>
+
+  <div>
+    <h6>Reviews by Day</h6>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">M</th>
+          <th scope="col">Tu</th>
+          <th scope="col">W</th>
+          <th scope="col">Th</th>
+          <th scope="col">F</th>
+          <th scope="col">Sa</th>
+          <th scope="col">Su</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @reviewsCTdayofweekM %></td>
+          <td><%= @reviewsCTdayofweekTu %></td>
+          <td><%= @reviewsCTdayofweekW %></td>
+          <td><%= @reviewsCTdayofweekTh %></td>
+          <td><%= @reviewsCTdayofweekF %></td>
+          <td><%= @reviewsCTdayofweekSa %></td>
+          <td><%= @reviewsCTdayofweekSu %></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr class="my-4">
+  </div>
+
+  <div>
+    <h3>Comments</h3>
+    <% for comment in @reviews %>
+      <h4><%= comment[:reviewtitle] %></h4>
+      <h5><%= comment[:firstname] %> <%= comment[:lastinitial] %></h5>
+      <h5>Overall Rating: <%= comment[:overall] %>/5</h5>
+      <p><%= comment[:comments] %></p>
+      <hr class="my-4">
+    <% end %>
+  </div>
+</div>

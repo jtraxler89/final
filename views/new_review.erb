@@ -1,0 +1,146 @@
+<h1>New Review for <%= @bar[:name] %></h1>
+
+
+
+<form action="/bars/<%= @bar[:id] %>/reviews/create" class="mt-5">
+  <h6>What day is this review for?</h6>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Monday">
+      <label class="form-check-label">M</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Tuesday">
+      <label class="form-check-label">Tu</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Wednesday">
+      <label class="form-check-label">W</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Thursday">
+      <label class="form-check-label">Th</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Friday">
+      <label class="form-check-label">F</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Saturday">
+      <label class="form-check-label">Sa</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="dayofweek" value="Sunday">
+      <label class="form-check-label">Su</label>
+    </div>
+  </div>
+  <h6>On a scale of 1-5, how would you rate the drink specials at this bar? [1=worst;5=best]</h6>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="drinkspecials" value="1">
+      <label class="form-check-label">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="drinkspecials" value="2">
+      <label class="form-check-label">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="drinkspecials" value="3">
+      <label class="form-check-label">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="drinkspecials" value="4">
+      <label class="form-check-label">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="drinkspecials" value="5">
+      <label class="form-check-label">5</label>
+    </div>
+<h6>On a scale of 1-5, how would you rate the food specials at this bar? [1=worst;5=best]</h6>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="foodspecials" value="1">
+      <label class="form-check-label">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="foodspecials" value="2">
+      <label class="form-check-label">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="foodspecials" value="3">
+      <label class="form-check-label">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="foodspecials" value="4">
+      <label class="form-check-label">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="foodspecials" value="5">
+      <label class="form-check-label">5</label>
+    </div>
+<h6>On a scale of 1-5, how would you rate the ambiance at this bar? [1=worst;5=best]</h6>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ambiance" value="1">
+      <label class="form-check-label">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ambiance" value="2">
+      <label class="form-check-label">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ambiance" value="3">
+      <label class="form-check-label">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ambiance" value="4">
+      <label class="form-check-label">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ambiance" value="5">
+      <label class="form-check-label">5</label>
+    </div>
+<h6>On a scale of 1-5, how would you rate this bar overall? [1=worst;5=best]</h6>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="overall" value="1">
+      <label class="form-check-label">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="overall" value="2">
+      <label class="form-check-label">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="overall" value="3">
+      <label class="form-check-label">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="overall" value="4">
+      <label class="form-check-label">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="overall" value="5">
+      <label class="form-check-label">5</label>
+    </div>            
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" class="form-control" name="firstname">
+  </div>
+  <div class="form-group">
+    <label>Last Initial</label>
+    <input type="text" class="form-control" name="lastinitial">
+  </div>
+  <div class="form-group">
+    <label>Your Email</label>
+    <input type="text" class="form-control" name="email">
+  </div>
+    <div class="form-group">
+    <label>Review Title</label>
+    <input type="text" class="form-control" name="reviewtitle">
+  </div>
+  <div class="form-group">
+    <label>Comments</label>
+    <textarea class="form-control" name="comments"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
