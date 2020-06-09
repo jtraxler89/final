@@ -36,6 +36,8 @@
     </div>
     <div class="col-sm-2">
       <a href="/bars/<%= @bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
+      <p></p>
+      <h6>Total Reviews: <%= @reviews_table.where(:bars_id => params[:id]).count %></h6>      
     </div>
   </div>
 

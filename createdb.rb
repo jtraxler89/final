@@ -54,7 +54,7 @@ bars_table.insert(name: "Bangers & Lace",
                   neighborhood: "Evanston")
 
 bars_table.insert(name: "Whiskey Thief Tavern",
-                  address: "616 DAvis St, Evanston, IL 60201",
+                  address: "616 Davis St, Evanston, IL 60201",
                   telephone: "(847) 859-2342",
                   website: "https://www.whiskeythieftavern.com/",
                   neighborhood: "Evanston")                  
@@ -102,3 +102,15 @@ reviews_table.insert(bars_id: 1,
                      email: "jtraxler@wi.rr.com",
                      reviewtitle: "YUCK!!",
                      comments: "There were so many MBA students going crazy...")
+
+reviews_table.insert(bars_id: 2,
+                     dayofweek: "Saturday",
+                     drinkspecials: 4,
+                     foodspecials: 4,
+                     ambiance: 4,
+                     overall: 4,
+                     firstname: "John",
+                     lastinitial: "T",
+                     email: "jtraxler@wi.rr.com",
+                     reviewtitle: "YUM!!",
+                     comments: "Great cocktails, cheesecurds, and no MBA students...")

@@ -1,8 +1,9 @@
 <div>
   <h1>The Happiest Hour</h1>
   <h2>Our Bars</h2>
+  <h6>Bars: <%= @bars_table.count %></h6>
   <p></p>
-  <a href"/bars/new"><button type="button" class="btn btn-outline-primary btn-lg">+ Add Bar</button></a>
+  <a href="/bars/new"><button type="button" class="btn btn-outline-primary btn-lg">+ Add Bar</button></a>
   <p></p>
 
   <% for bar in @bars %>  
@@ -16,28 +17,36 @@
       </div>
       <div class="col-sm-5">
         <table class="table table-sm table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Review</th>
+              <th scope="col">Out of 5</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>Drink Specials</td>
-              <td>@mdo</td>
+              <td><%= @reviews_table.where(:bars_id => bar[:id]).avg(:drinkspecials) %></td>
             </tr>
             <tr>
               <td>Food Specials</td>
-              <td>@fat</td>
+              <td><%= @reviews_table.where(:bars_id => bar[:id]).avg(:foodspecials) %></td>
             </tr>
             <tr>
               <td>Ambiance</td>
-              <td>@fat</td>
+              <td><%= @reviews_table.where(:bars_id => bar[:id]).avg(:ambiance) %></td>
             </tr>
             <tr>  
               <td>Overall</td>
-              <td>@fat</td>
+              <td><%= @reviews_table.where(:bars_id => bar[:id]).avg(:overall) %></td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="col-sm-2">
         <a href="/bars/<%= bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
+        <p></p>
+        <h6>Total Reviews: <%= @reviews_table.where(:bars_id => bar[:id]).count %></h6>
       </div>
     </div>
   <% end %>
