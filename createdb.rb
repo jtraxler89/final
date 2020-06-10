@@ -15,16 +15,13 @@ DB.create_table! :bars do
 end
 DB.create_table! :reviews do
   primary_key :id
-  foreign_key :bars_id
-  foreign_key2 :users_id
+  foreign_key :bar_id
+  foreign_key :user_id
   String :dayofweek
   Integer :drinkspecials
   Integer :foodspecials
   Integer :ambiance
   Integer :overall
-  String :firstname
-  String :lastinitial
-  String :email
   String :reviewtitle
   String :comments, text: true
 end
@@ -35,7 +32,7 @@ DB.create_table! :users do
   String :homezipcode
   String :email
   String :password
-  Boolean :weeklyupdate
+  Boolean :periodicupdates
 end
 
 # Insert initial (seed) data
@@ -76,41 +73,3 @@ bars_table.insert(name: "Celtic Knot Public House",
                   telephone: "(847) 864-1679",
                   website: "https://www.celticknotpub.com/",
                   neighborhood: "Evanston")                  
-
-reviews_table = DB.from(:reviews)
-
-reviews_table.insert(bars_id: 1,
-                     dayofweek: "Friday",
-                     drinkspecials: 5,
-                     foodspecials: 5,
-                     ambiance: 5,
-                     overall: 5,
-                     firstname: "Jeff",
-                     lastinitial: "T",
-                     email: "jtraxler89@gmail.com",
-                     reviewtitle: "CRUSHED IT",
-                     comments: "That rooftop is sick. And they really had their social distancing down.")
-
-reviews_table.insert(bars_id: 1,
-                     dayofweek: "Tuesday",
-                     drinkspecials: 2,
-                     foodspecials: 2,
-                     ambiance: 2,
-                     overall: 2,
-                     firstname: "John",
-                     lastinitial: "T",
-                     email: "jtraxler@wi.rr.com",
-                     reviewtitle: "YUCK!!",
-                     comments: "There were so many MBA students going crazy...")
-
-reviews_table.insert(bars_id: 2,
-                     dayofweek: "Saturday",
-                     drinkspecials: 4,
-                     foodspecials: 4,
-                     ambiance: 4,
-                     overall: 4,
-                     firstname: "John",
-                     lastinitial: "T",
-                     email: "jtraxler@wi.rr.com",
-                     reviewtitle: "YUM!!",
-                     comments: "Great cocktails, cheesecurds, and no MBA students...")

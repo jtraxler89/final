@@ -1,46 +1,56 @@
 <div class="row">
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <h1><%= @bar[:name] %></h1>
     <h3><%= @bar[:neighborhood] %></h3>
     <h6><%= @bar[:address] %></h3>
     <h6><%= @bar[:telephone] %></h3>
     <h6><a href="<%= @bar[:website] %>"><%= @bar[:website] %></a></h3>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-3">
     <table class="table table-sm table-borderless">
       <thead>
         <tr>
           <th scope="col">Review</th>
-          <th scope="col">Out of 5</th>
+          <th scope="col">Out of 5.0</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Drink Specials</td>
-          <td><%= @reviewsAVGdrinkspecials %></td>
+          <td><%= (@reviewsAVGdrinkspecials || 0.0).round(1) %></td>
         </tr>
         <tr>
           <td>Food Specials</td>
-          <td><%= @reviewsAVGfoodspecials %></td>
+          <td><%= (@reviewsAVGfoodspecials || 0.0).round(1) %></td>
         </tr>
         <tr>
           <td>Ambiance</td>
-          <td><%= @reviewsAVGambiance %></td>
+          <td><%= (@reviewsAVGambiance || 0.0).round(1) %></td>
         </tr>
         <tr>  
           <td>Overall</td>
-          <td><%= @reviewsAVGoverall %></td>
+          <td><%= (@reviewsAVGoverall || 0.0).round(1) %></td>
         </tr>
       </tbody>
-      </table>
-    </div>
-    <div class="col-sm-2">
-      <a href="/bars/<%= @bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
-      <p></p>
-      <h6>Total Reviews: <%= @reviews_table.where(:bars_id => params[:id]).count %></h6>      
-    </div>
+    </table>
   </div>
+  <div class="col-sm-2">
+    <a href="/bars/<%= @bar[:id] %>/reviews/new"><button type="button" class="btn btn-outline-primary">+ Add Review</button></a>
+    <p></p>
+    <h6>Total Reviews: <%= @reviews_table.where(:bar_id => params[:id]).count %></h6>      
+  </div>
+  <div class="col-sm-3">
+    <iframe
+      width="250"
+      height="200"
+      frameborder="0" 
+      style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw&q=<%= @lat_long %>&zoom=15" allowfullscreen>
+    </iframe>
+  </div>  
+</div>
 
+<div>
   <div>
     <hr class="my-4">
   </div>
@@ -73,12 +83,15 @@
     </table>
     <hr class="my-4">
   </div>
+</div>
 
+<div>
   <div>
     <h3>Comments</h3>
     <% for comment in @reviews %>
+      <% user = @users_table.where(:id => comment[:user_id]).to_a[0] %>
       <h4><%= comment[:reviewtitle] %></h4>
-      <h5><%= comment[:firstname] %> <%= comment[:lastinitial] %></h5>
+      <h5><%= user[:firstname] %> <%= user[:lastinitial] %></h5>
       <h5>Overall Rating: <%= comment[:overall] %>/5</h5>
       <p><%= comment[:comments] %></p>
       <hr class="my-4">

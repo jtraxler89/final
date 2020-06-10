@@ -2,7 +2,7 @@
 
 
 
-<form action="/bars/<%= @bar[:id] %>/reviews/create" class="mt-5">
+<form action="/bars/<%= @bar[:id] %>/reviews/create" class="mt-5" method="POST">
   <h6>What day is this review for?</h6>
   <div class="form-group">
     <div class="form-check form-check-inline">
@@ -121,19 +121,7 @@
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="overall" value="5">
       <label class="form-check-label">5</label>
-    </div>            
-  <div class="form-group">
-    <label>First Name</label>
-    <input type="text" class="form-control" name="firstname">
-  </div>
-  <div class="form-group">
-    <label>Last Initial</label>
-    <input type="text" class="form-control" name="lastinitial">
-  </div>
-  <div class="form-group">
-    <label>Your Email</label>
-    <input type="text" class="form-control" name="email">
-  </div>
+    </div>              
     <div class="form-group">
     <label>Review Title</label>
     <input type="text" class="form-control" name="reviewtitle">
@@ -142,5 +130,5 @@
     <label>Comments</label>
     <textarea class="form-control" name="comments"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit Review</button>
+  <button type="submit" class="btn btn-outline-primary btn-lg">Submit Review</button>
 </form>
