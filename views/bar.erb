@@ -17,19 +17,19 @@
       <tbody>
         <tr>
           <td>Drink Specials</td>
-          <td><%= (@reviewsAVGdrinkspecials || 0.0).round(1) %></td>
+          <td><%= (@reviewsAVGdrinkspecials || 0.0).to_f.round(1) %></td>
         </tr>
         <tr>
           <td>Food Specials</td>
-          <td><%= (@reviewsAVGfoodspecials || 0.0).round(1) %></td>
+          <td><%= (@reviewsAVGfoodspecials || 0.0).to_f.round(1) %></td>
         </tr>
         <tr>
           <td>Ambiance</td>
-          <td><%= (@reviewsAVGambiance || 0.0).round(1) %></td>
+          <td><%= (@reviewsAVGambiance || 0.0).to_f.round(1) %></td>
         </tr>
         <tr>  
           <td>Overall</td>
-          <td><%= (@reviewsAVGoverall || 0.0).round(1) %></td>
+          <td><%= (@reviewsAVGoverall || 0.0).to_f.round(1) %></td>
         </tr>
       </tbody>
     </table>

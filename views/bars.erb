@@ -28,19 +28,19 @@
           <tbody>
             <tr>
               <td>Drink Specials</td>
-              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:drinkspecials) || 0.0).round(1) %></td>
+              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:drinkspecials) || 0.0).to_f.round(1) %></td>
             </tr>
             <tr>
               <td>Food Specials</td>
-              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:foodspecials) || 0.0).round(1) %></td>
+              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:foodspecials) || 0.0).to_f.round(1) %></td>
             </tr>
             <tr>
               <td>Ambiance</td>
-              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:ambiance) || 0.0).round(1) %></td>
+              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:ambiance) || 0.0).to_f.round(1) %></td>
             </tr>
             <tr>  
               <td>Overall</td>
-              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:overall) || 0.0).round(1) %></td>
+              <td><%= (@reviews_table.where(:bar_id => bar[:id]).avg(:overall) || 0.0).to_f.round(1) %></td>
             </tr>
           </tbody>
         </table>
