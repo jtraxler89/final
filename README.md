@@ -9,10 +9,11 @@ Motivations: Have you ever heard that a place has an awesome happy hour only to 
 SAME! That was the motivation behind creating this site. Through others pain, suffering, and willingness to write reviews, this site
 will help you make the most of your happy hour experience, making it the happiest hour of your day.
 
+Live internet address: https://immense-journey-65995.herokuapp.com/
+
 Future additions: data on bars spread by day; more sort and drill-down functionality of reviews and comments by day; add dates to
 reviews for better information purposes and sorting (outdated reviews); sorting and searching by keywords, neighborhood, etc.;
 better landing pages and validation when you add reviews not logged in; data validation to make sure users with the same email
 can't be added; data valiadtion of form inputs (telephone, emails, etc.); data validationto make sure that the same bar cannot be
 added twice (based on phone number); etc.
 
-Live internet address: 
