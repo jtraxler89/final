@@ -41,12 +41,19 @@ end
 
 post "/bars/create" do
     puts params.inspect
-    bars_table.insert(:name => params["name"],
-                      :address => params["address"],
-                      :telephone => params["telephone"],
-                      :website => params["website"],
-                      :neighborhood => params["neighborhood"])
-    view "create_bar"
+    bar = bars_table.where(:id => params["id"]).to_a[0]
+    telephone_entered = params["telephone"]
+    telephone = bars_table.where(:telephone => telephone_entered).to_a[0]
+    if telephone && (telephone[:telephone] == telephone_entered)
+        view "create_bar_failed"
+    else
+        bars_table.insert(:name => params["name"],
+                          :address => params["address"],
+                          :telephone => params["telephone"],
+                          :website => params["website"],
+                          :neighborhood => params["neighborhood"])
+        view "create_bar"
+    end    
 end
 
 get "/bars/:id" do
@@ -75,27 +82,27 @@ get "/bars/:id" do
 end
 
 get "/bars/:id/reviews/new" do
-    @bar = bars_table.where(:id => params["id"]).to_a[0]
-    if @current_user == nil
-        view "new_review_failed"
-    else
-        view "new_review"
-    end
+    @bar = bars_table.where(:id => params["id"]).to_a[0]   
+    view "new_review"
 end
 
 post "/bars/:id/reviews/create" do
     puts params.inspect
     @bar = bars_table.where(:id => params["id"]).to_a[0]
-    reviews_table.insert(:bar_id => params["id"],
-                         :dayofweek => params["dayofweek"],
-                         :drinkspecials => params["drinkspecials"],
-                         :foodspecials => params["foodspecials"],
-                         :ambiance => params["ambiance"],
-                         :overall => params["overall"],
-                         :user_id => @current_user[:id],
-                         :reviewtitle => params["reviewtitle"],
-                         :comments => params["comments"])
-    view "create_review"
+    if @current_user == nil
+        view "create_review_failed"
+    else
+        reviews_table.insert(:bar_id => params["id"],
+                             :dayofweek => params["dayofweek"],
+                             :drinkspecials => params["drinkspecials"],
+                             :foodspecials => params["foodspecials"],
+                             :ambiance => params["ambiance"],
+                             :overall => params["overall"],
+                             :user_id => @current_user[:id],
+                             :reviewtitle => params["reviewtitle"],
+                             :comments => params["comments"])
+        view "create_review"
+    end    
 end
 
 get "/users/new" do
