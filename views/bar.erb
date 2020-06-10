@@ -91,9 +91,13 @@
     <% for comment in @reviews %>
       <% user = @users_table.where(:id => comment[:user_id]).to_a[0] %>
       <h4><%= comment[:reviewtitle] %></h4>
-      <h5>Overall Rating: <%= comment[:overall] %>/5</h5>
+      <h5>Overall Rating: <%= comment[:overall] %>/5 - <%= comment[:dayofweek] %></h5>
       <p><%= user[:firstname] %> <%= user[:lastinitial] %></p>      
       <p><%= comment[:comments] %></p>
+      <p>Drink Specials Rating: <%= comment[:drinkspecials] %>/5</p>
+      <p>Food Specials Rating: <%= comment[:foodspecials] %>/5</p>
+      <p>Ambiance Rating: <%= comment[:ambiance] %>/5</p>
+      <p>Overall Rating: <%= comment[:overall] %>/5</p>
       <hr class="my-4">
     <% end %>
   </div>

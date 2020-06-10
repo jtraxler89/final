@@ -1,5 +1,6 @@
 # Set up for the application and database. DO NOT CHANGE. #############################
 require "sequel"                                                                      #
+require "bcrypt"                                                                      #
 connection_string = ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite3"  #
 DB = Sequel.connect(connection_string)                                                #
 #######################################################################################
@@ -80,21 +81,21 @@ users_table.insert(firstname: "Jeff",
                    lastinitial: "T",
                    homezipcode: "60201",
                    email: "jeff@gmail.com",
-                   password: "jeff123",
+                   password: BCrypt::Password.create("jeff123"),
                    periodicupdates: "true")
 
 users_table.insert(firstname: "Jenn",
                    lastinitial: "T",
                    homezipcode: "53211",
                    email: "jenn@gmail.com",
-                   password: "jenn123",
+                   password: BCrypt::Password.create("jenn123"),
                    periodicupdates: nil)
 
 users_table.insert(firstname: "John",
                    lastinitial: "T",
                    homezipcode: "53211",
                    email: "john@gmail.com",
-                   password: "john123",
+                   password: BCrypt::Password.create("john123"),
                    periodicupdates: nil)
 
 reviews_table = DB.from(:reviews)
@@ -107,7 +108,7 @@ reviews_table.insert(bar_id: "1",
                      ambiance: "4",
                      overall: "4",
                      reviewtitle: "Pretty Fly for a Fri-die",
-                     comments: "The was such a great place to really turn up on Friday.")
+                     comments: "This was such a great place to really turn up on Friday. Way better than the TG.")
                      
 reviews_table.insert(bar_id: "1",
                      user_id: "2",
